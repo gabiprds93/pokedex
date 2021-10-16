@@ -1,12 +1,12 @@
 // Pokemon interfaces and types
 
-/** Pokemon information.
- * @interface Pokemon
+/** Pokemon standard information.
+ * @interface PokemonStandardData
  * @since 0.1.0
- * @property {string} name The name of the pokemon.
- * @property {string} url The url of the pokemon details.
+ * @property {string} name The name of the data.
+ * @property {string} url The url of the data.
  */
-export interface Pokemon {
+export interface PokemonStandardData {
   name: string;
   url: string;
 }
@@ -23,5 +23,38 @@ export interface PokemonsData {
   count: number;
   next: string | null;
   previous: string | null;
-  results: Pokemon[];
+  results: PokemonStandardData[];
+}
+
+/** Pokemon details information.
+ * @interface PokemonDetails
+ * @since 0.1.0
+ * @property {number} id The id of the pokemon.
+ * @property {string} name The name of the pokemon.
+ * @property {PokemonType[]} types The types of the pokemon.
+ * @property {string} sprites The sprites of the pokemon.
+ */
+export interface PokemonDetails {
+  id: number;
+  name: string;
+  types: PokemonType[];
+  sprites: Sprites;
+}
+
+/** Pokemon type information.
+ * @interface PokemonType
+ * @since 0.1.0
+ * @property {PokemonStandardData} type The type information of the pokemon.
+ */
+export interface PokemonType {
+  type: PokemonStandardData;
+}
+
+/** Pokemon sprites.
+ * @interface Sprites
+ * @since 0.1.0
+ * @property {string} front_default The sprite front of the pokemon.
+ */
+export interface Sprites {
+  front_default: string;
 }

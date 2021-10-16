@@ -10,7 +10,7 @@ import { setPokemonOffset } from "../../../redux/pokemon/pokemon.actions";
 import { useFetchPokemonList } from "../../../services/pokemon/pokemon.service.hooks";
 // Types, Styles
 import { PokemonListProps as Props } from "./PokemonList.types";
-import { Pokemon } from "../../../types/pokemon.type";
+import { PokemonStandardData } from "../../../types/pokemon.type";
 import Styles from "./PokemonList.styles";
 
 const PokemonList: React.FC<Props> = (props) => {
@@ -56,10 +56,10 @@ const PokemonList: React.FC<Props> = (props) => {
 
   /** Function to get an array of pokemons information.
    * @since 0.1.0
-   * @returns { Pokemon[]} Returns array of pokemons information.
+   * @returns { PokemonStandardData[]} Returns array of pokemons information.
    */
   const getPokemonArray = useCallback(() => {
-    return pokemonData?.pages.reduce<Pokemon[]>((acc, page) => {
+    return pokemonData?.pages.reduce<PokemonStandardData[]>((acc, page) => {
       if (!page.results) {
         return [...acc];
       }

@@ -1,17 +1,17 @@
 // Interfaces and types from component PokemonCard
 
 // Types
-import { Pokemon } from "../../../types/pokemon.type";
+import { PokemonStandardData } from "../../../types/pokemon.type";
 
 // Component Props
 
 /** Pokemon card props.
  * @interface PokemonCardProps
  * @since 0.1.0
- * @property {Pokemon} pokemon The pokemon information.
+ * @property {PokemonStandardData} pokemon The pokemon information.
  */
 export interface PokemonCardProps {
-  pokemon: Pokemon;
+  pokemon: PokemonStandardData;
 }
 
 // Styled Component Props
