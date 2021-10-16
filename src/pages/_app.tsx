@@ -1,5 +1,9 @@
 import type { AppProps } from "next/app";
 import { QueryClientProvider, QueryClient } from "react-query";
+import { Provider } from "react-redux";
+
+// Redux
+import store from "../redux/store";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const queryClient = new QueryClient();
@@ -12,7 +16,9 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Component {...pageProps} />
+      <Provider store={store}>
+        <Component {...pageProps} />
+      </Provider>
     </QueryClientProvider>
   );
 }
