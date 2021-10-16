@@ -18,6 +18,11 @@ const HomeStyled = styled.div<Props>`
 
     &__main {
       flex: 1;
+
+      &__title {
+        font-size: 3.2rem;
+        text-align: center;
+      }
     }
 
     &__footer {
