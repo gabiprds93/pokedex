@@ -20,7 +20,7 @@ const HomePage: NextPage = () => {
           rel="prefetch"
           as="image"
           crossOrigin="anonymous"
-          href="/assets/images/bulbasaur.png"
+          href="/assets/images/bulbasaur.webp"
         />
       </Head>
 
