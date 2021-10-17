@@ -3,8 +3,11 @@
 // Types
 import { Params } from "./pokemon.service.types";
 import { PokemonsData, PokemonDetails } from "../../types/pokemon.type";
+// Configs
+import CONSTANTS from "../../configs/constants";
 
-const baseUrl = "https://pokeapi.co/api/v2";
+const { API_URL } = CONSTANTS;
+const baseUrl = `${API_URL}/api/v2`;
 
 /** Function to get pokemon list data.
  * @since 0.1.0

@@ -1,6 +1,7 @@
 // Project constants
 
 const CONSTANTS = {
+  API_URL: "https://pokeapi.co",
   BREAKPOINTS: {
     mobile: 480,
     tablet: 768,
