@@ -9,7 +9,7 @@ const TypeLabel: React.FC<Props> = (props) => {
 
   return (
     <Styles className="TypeLabel" type={type}>
-      {type}
+      <span className="TypeLabel__label">{type}</span>
     </Styles>
   );
 };
