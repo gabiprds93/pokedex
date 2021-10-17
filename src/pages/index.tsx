@@ -9,6 +9,7 @@ import { prefetchPokemonDetails } from "../utils/cache.utils";
 import { prefetchPokemonList } from "../utils/cache.utils";
 // Configs
 import CONSTANTS from "../configs/constants";
+import i18n from "../i18n/i18n";
 
 const { POKEMON_DEFAULT_PARAMS, POKEMON_DEFAULT_NAME } = CONSTANTS;
 
@@ -16,6 +17,12 @@ const HomePage: NextPage = () => {
   return (
     <>
       <Head>
+        <title>{i18n.t("title")}</title>
+
+        <meta name="description" content={i18n.t("descriptionHome")} />
+        <meta name="robots" content="index,follow" />
+
+        <link rel="canonical" href="https://complete-pokedex.vercel.app/" />
         <link
           rel="prefetch"
           as="image"

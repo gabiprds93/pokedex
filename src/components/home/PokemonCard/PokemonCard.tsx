@@ -15,7 +15,7 @@ import Styles from "./PokemonCard.styles";
 import i18n from "../../../i18n/i18n";
 import CONSTANTS from "../../../configs/constants";
 
-import bulbasaur from "../../../assets/images/bulbasaur.webp";
+import bulbasaur from "../../../../public/assets/images/bulbasaur.webp";
 
 const { POKEMON_DEFAULT_NAME } = CONSTANTS;
 

@@ -1,5 +1,6 @@
 {
   "title": "Pokedex",
   "numeration": "N°",
-  "loading": "Loading more Pokemons..."
+  "loading": "Loading more Pokemons...",
+  "descriptionHome": "Discover all the Pokemons here"
 }
