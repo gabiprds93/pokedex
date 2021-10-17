@@ -8,6 +8,11 @@ const CONSTANTS = {
     wide: 1800,
     hd: 2652,
   },
+  POKEMON_DEFAULT_PARAMS: {
+    offset: 0,
+    limit: 20,
+  },
+  POKEMON_DEFAULT_NAME: "bulbasaur",
 };
 
 export default CONSTANTS;

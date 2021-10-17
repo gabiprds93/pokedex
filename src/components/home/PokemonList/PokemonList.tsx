@@ -15,6 +15,9 @@ import { PokemonStandardData } from "../../../types/pokemon.type";
 import Styles from "./PokemonList.styles";
 // Configs
 import i18n from "../../../i18n/i18n";
+import CONSTANTS from "../../../configs/constants";
+
+const { POKEMON_DEFAULT_PARAMS } = CONSTANTS;
 
 const PokemonList: React.FC<Props> = (props) => {
   const observer = useRef<IntersectionObserver>();
@@ -22,7 +25,7 @@ const PokemonList: React.FC<Props> = (props) => {
   const cardsOffset = useSelector((state: AppState) => state.pokemon.offset);
   const cardsLimit = useSelector((state: AppState) => state.pokemon.limit);
   const fetchPokemonList = useFetchPokemonList({
-    offset: 0,
+    offset: POKEMON_DEFAULT_PARAMS.offset,
     limit: cardsLimit,
   });
 
