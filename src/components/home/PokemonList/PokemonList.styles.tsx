@@ -9,18 +9,18 @@ const { desktop, tablet, mobile } = CONSTANTS.BREAKPOINTS;
 
 const PokemonListStyled = styled.div<Props>`
   &.PokemonList {
-    padding: 3.2rem;
-    width: 100%;
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    padding: 3.2rem;
+    width: 100%;
   }
 
   .PokemonList {
     &__grid {
       display: grid;
-      grid-template-columns: repeat(4, 20rem);
       gap: 2.4rem;
+      grid-template-columns: repeat(4, 20rem);
 
       @media screen and (max-width: ${desktop}px) {
         grid-template-columns: repeat(3, 20rem);
@@ -36,8 +36,9 @@ const PokemonListStyled = styled.div<Props>`
     }
 
     &__refresh {
+      font-size: 1.6rem;
+      padding: 2.4rem 0;
       text-align: center;
-      padding: 1.6rem 0;
     }
   }
 `;

@@ -18,3 +18,8 @@ export interface PokemonCardProps {
 export interface PokemonCardStyledProps {
   className: string;
 }
+
+// Styled Placeholder Props
+export interface PokemonCardPlaceholderStyledProps {
+  className: string;
+}

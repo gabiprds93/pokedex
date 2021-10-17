@@ -1,3 +1,5 @@
 {
-  "title": "Pokédex"
+  "title": "Pokédex",
+  "numeration": "N°",
+  "loading": "Cargando más Pokémons..."
 }

@@ -10,6 +10,7 @@ const TypeLabelStyled = styled.div<Props>`
     color: var(--palette-white);
     font-size: 1.2rem;
     font-weight: 500;
+    height: 2.4rem;
     padding: 0.2rem 0.4rem;
     text-align: center;
     text-transform: capitalize;

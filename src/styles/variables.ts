@@ -1,7 +1,9 @@
 const palette = {
   grey: "rgba(0,0,0,0.1)",
+  "background-grey": "#f2f2f2",
   black: "#000000",
   white: "#FFFFFF",
+  shine: "#f8f8f888",
   shadow: "#64646480",
   types: {
     fire: "#F08030",
@@ -32,6 +34,7 @@ const sizes = {
     minHeight: "100vh",
   },
   card: {
+    height: "25.6rem",
     width: "20rem",
   },
 };

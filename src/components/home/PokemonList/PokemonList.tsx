@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 // Components
 import PokemonCard from "../PokemonCard/PokemonCard";
+import PokemonCardPlaceholder from "../PokemonCard/PokemonCard.placeholder";
 // Redux
 import { AppState } from "../../../redux/reducers";
 import { setPokemonOffset } from "../../../redux/pokemon/pokemon.actions";
@@ -12,6 +13,8 @@ import { useFetchPokemonList } from "../../../services/pokemon/pokemon.service.h
 import { PokemonListProps as Props } from "./PokemonList.types";
 import { PokemonStandardData } from "../../../types/pokemon.type";
 import Styles from "./PokemonList.styles";
+// Configs
+import i18n from "../../../i18n/i18n";
 
 const PokemonList: React.FC<Props> = (props) => {
   const observer = useRef<IntersectionObserver>();
@@ -73,13 +76,21 @@ const PokemonList: React.FC<Props> = (props) => {
   return (
     <Styles className="PokemonList">
       <div className="PokemonList__grid">
+        {!pokemonArray
+          ? Array(20)
+              .fill(undefined)
+              .map((_, index) => {
+                return <PokemonCardPlaceholder key={index} />;
+              })
+          : null}
+
         {pokemonArray?.map((pokemon, index) => {
           return <PokemonCard key={index} pokemon={pokemon} />;
         })}
       </div>
 
       <span className="PokemonList__refresh" ref={triggerRef}>
-        Loading more...
+        {i18n.t("loading")}
       </span>
     </Styles>
   );

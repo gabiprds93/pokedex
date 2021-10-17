@@ -6,6 +6,7 @@ import PokemonList from "../PokemonList/PokemonList";
 // Types, Styles
 import { HomeProps as Props } from "./Home.types";
 import Styles from "./Home.styles";
+// Configs
 import i18n from "../../../i18n/i18n";
 
 const Home: React.FC<Props> = (props) => {
