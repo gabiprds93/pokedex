@@ -1,4 +1,5 @@
 import type { GetStaticProps, NextPage } from "next";
+import Head from "next/head";
 import { dehydrate, QueryClient } from "react-query";
 
 // Components
@@ -12,7 +13,20 @@ import CONSTANTS from "../configs/constants";
 const { POKEMON_DEFAULT_PARAMS, POKEMON_DEFAULT_NAME } = CONSTANTS;
 
 const HomePage: NextPage = () => {
-  return <Home />;
+  return (
+    <>
+      <Head>
+        <link
+          rel="prefetch"
+          as="image"
+          crossOrigin="anonymous"
+          href="/assets/images/bulbasaur.png"
+        />
+      </Head>
+
+      <Home />
+    </>
+  );
 };
 
 export const getStaticProps: GetStaticProps = async () => {

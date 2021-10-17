@@ -13,6 +13,11 @@ import { PokemonCardProps as Props } from "./PokemonCard.types";
 import Styles from "./PokemonCard.styles";
 // Configs
 import i18n from "../../../i18n/i18n";
+import CONSTANTS from "../../../configs/constants";
+
+import bulbasaur from "../../../assets/images/bulbasaur.png";
+
+const { POKEMON_DEFAULT_NAME } = CONSTANTS;
 
 const PokemonCard: React.FC<Props> = (props) => {
   const { pokemon } = props;
@@ -21,23 +26,37 @@ const PokemonCard: React.FC<Props> = (props) => {
   const { data: pokemonDetails } = useFetchPokemonDetails(name);
 
   const { id, sprites, types } = pokemonDetails ?? {};
+  const isDefaultPokemon = name === POKEMON_DEFAULT_NAME;
 
   return (
     <Styles className="PokemonCard">
       <div className="PokemonCard__img-container">
         <div className="PokemonCard__img-box">
-          {loadingImg || !sprites ? <PokemonCardImgPlaceholder /> : null}
-
-          {sprites ? (
+          {isDefaultPokemon ? (
             <Image
-              src={sprites.front_default}
+              src={bulbasaur}
               alt={name}
               width={120}
               height={120}
               onLoadingComplete={() => setLoadingImg(false)}
               className="PokemonCard__img"
             />
-          ) : null}
+          ) : (
+            <>
+              {loadingImg || !sprites ? <PokemonCardImgPlaceholder /> : null}
+
+              {sprites ? (
+                <Image
+                  src={sprites.front_default}
+                  alt={name}
+                  width={120}
+                  height={120}
+                  onLoadingComplete={() => setLoadingImg(false)}
+                  className="PokemonCard__img"
+                />
+              ) : null}
+            </>
+          )}
         </div>
       </div>
 
