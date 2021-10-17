@@ -20,6 +20,7 @@ const PokemonCardStyled = styled.div<Props>`
   .PokemonCard {
     &__img-box {
       height: 12rem;
+      position: relative;
       width: 12rem;
     }
 
@@ -115,7 +116,9 @@ export const PokemonCardImgPlaceholderStyled = styled.div<PlaceholderProps>`
   &.PokemonCardImgPlaceholder {
     background-color: var(--palette-background-grey);
     height: 12rem;
+    position: absolute;
     width: 12rem;
+    z-index: 1;
   }
 
   .PokemonCardImgPlaceholder {

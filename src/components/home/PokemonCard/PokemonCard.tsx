@@ -34,7 +34,7 @@ const PokemonCard: React.FC<Props> = (props) => {
               alt={name}
               width={120}
               height={120}
-              onLoad={() => setLoadingImg(false)}
+              onLoadingComplete={() => setLoadingImg(false)}
               className="PokemonCard__img"
             />
           ) : null}
