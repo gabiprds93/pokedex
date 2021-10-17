@@ -1,5 +1,4 @@
 // Pokemon services
-import axios from "axios";
 
 // Types
 import { Params } from "./pokemon.service.types";
@@ -15,8 +14,14 @@ const baseUrl = "https://pokeapi.co/api/v2";
 export const fetchPokemonList = async (
   params: Params
 ): Promise<PokemonsData> => {
+  const { offset, limit } = params;
+
   try {
-    const { data } = await axios.get<any>(`${baseUrl}/pokemon`, { params });
+    const data = await fetch(
+      `${baseUrl}/pokemon?offset=${offset}&limit=${limit}`
+    )
+      .then((response) => response.json())
+      .then((data) => data);
 
     return data;
   } catch (e) {
@@ -33,7 +38,9 @@ export const fetchPokemonDetails = async (
   name: string
 ): Promise<PokemonDetails> => {
   try {
-    const { data } = await axios.get<any>(`${baseUrl}/pokemon/${name}`);
+    const data = await fetch(`${baseUrl}/pokemon/${name}`)
+      .then((response) => response.json())
+      .then((data) => data);
 
     return data;
   } catch (e) {
