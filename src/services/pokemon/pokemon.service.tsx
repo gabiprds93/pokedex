@@ -12,7 +12,7 @@ const baseUrl = `${API_URL}/api/v2`;
 /** Function to get pokemon list data.
  * @since 0.1.0
  * @param {Params} params The params of the endpoint.
- * @returns {Promise<PokemonStandardData[]>} Returns a promise with the result of pokemon list data.
+ * @returns {Promise<PokemonsData>} Returns a promise with the result of pokemon list data.
  */
 export const fetchPokemonList = async (
   params: Params
