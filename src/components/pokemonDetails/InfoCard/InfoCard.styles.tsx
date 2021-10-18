@@ -8,7 +8,7 @@ const InfoCardStyled = styled.div<Props>`
     background-color: var(--palette-white);
     border-radius: 1.6rem;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     min-height: 16.8rem;
     padding: 2.4rem;
   }

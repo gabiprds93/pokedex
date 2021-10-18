@@ -2,6 +2,10 @@ import styled from "styled-components";
 
 // Types
 import { PokemonDetailsStyledProps as Props } from "./PokemonDetails.types";
+// Configs
+import CONSTANTS from "../../../configs/constants";
+
+const { tablet } = CONSTANTS.BREAKPOINTS;
 
 const PokemonDetailsStyled = styled.div<Props>`
   &.PokemonDetails {
@@ -40,6 +44,11 @@ const PokemonDetailsStyled = styled.div<Props>`
 
       &__info {
         width: 40%;
+
+        @media screen and (max-width: ${tablet}px) {
+          max-width: 24rem;
+          width: 100%;
+        }
       }
 
       &__types {
