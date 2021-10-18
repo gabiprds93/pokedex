@@ -1,4 +1,4 @@
-import React from "react";
+import Head from "next/head";
 
 // Components
 import InfoCard from "../InfoCard/InfoCard";
@@ -14,14 +14,24 @@ const PokemonDetails: React.FC<Props> = (props) => {
   const { pokemon } = props;
 
   const { id, name, types } = pokemon;
+  const nameCapitalize = `${name.charAt(0).toUpperCase()}${name.substr(1)}`;
 
   return (
     <Styles className="PokemonDetails">
+      <Head>
+        <title>{nameCapitalize}</title>
+
+        <meta
+          name="description"
+          content={`${i18n.t("descriptionDetails")} ${nameCapitalize}`}
+        />
+      </Head>
+
       <header className="PokemonDetails__header" />
 
       <main className="PokemonDetails__main">
         <h1 className="PokemonDetails__main__title">
-          {`${name} ${i18n.t("numeration")} ${id}`}
+          {`${nameCapitalize} ${i18n.t("numeration")} ${id}`}
         </h1>
 
         <PokemonImage pokemon={pokemon} />

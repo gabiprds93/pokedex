@@ -28,7 +28,6 @@ const PokemonDetailsStyled = styled.div<Props>`
 
       &__title {
         font-size: 3.4rem;
-        text-transform: capitalize;
         padding-bottom: 4rem;
       }
 
