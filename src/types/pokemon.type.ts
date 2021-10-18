@@ -33,12 +33,22 @@ export interface PokemonsData {
  * @property {string} name The name of the pokemon.
  * @property {PokemonType[]} types The types of the pokemon.
  * @property {string} sprites The sprites of the pokemon.
+ * @property {number} height The height of the pokemon.
+ * @property {number} weight The weight of the pokemon.
+ * @property {PokemonStandardData} species The species of the pokemon.
+ * @property {Stat[]} stats The stats of the pokemon.
+ * @property {Ability[]} abilities The abilities of the pokemon.
  */
 export interface PokemonDetails {
   id: number;
   name: string;
   types: PokemonType[];
   sprites: Sprites;
+  height: number;
+  weight: number;
+  species: PokemonStandardData;
+  stats: Stat[];
+  abilities: Ability[];
 }
 
 /** Pokemon type information.
@@ -57,4 +67,28 @@ export interface PokemonType {
  */
 export interface Sprites {
   front_default: string;
+}
+
+/** Pokemon stat information.
+ * @interface Stat
+ * @since 0.1.0
+ * @property {number} base_stat The base stat of the pokemon.
+ * @property {number} effort The effort of the pokemon.
+ * @property {PokemonStandardData} stat The stat of the pokemon.
+ */
+export interface Stat {
+  base_stat: number;
+  effort: number;
+  stat: PokemonStandardData;
+}
+
+/** Pokemon ability information.
+ * @interface Ability
+ * @since 0.1.0
+ * @property {PokemonStandardData} ability The ability of the pokemon.
+ * @property {boolean} is_hidden Attribute that indicate if the ability is hidden.
+ */
+export interface Ability {
+  ability: PokemonStandardData;
+  is_hidden: boolean;
 }

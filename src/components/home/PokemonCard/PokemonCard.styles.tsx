@@ -7,6 +7,10 @@ import { PokemonCardPlaceholderStyledProps as PlaceholderProps } from "./Pokemon
 const PokemonCardStyled = styled.div<Props>`
   &.PokemonCard {
     align-items: center;
+    background-color: ${(props) =>
+      props.type
+        ? `var(--palette-types-light-${props.type})`
+        : "var(--palette-white)"};
     border-radius: 2.4rem;
     box-shadow: 0 0.4rem 1.6rem var(--palette-shadow);
     cursor: pointer;
@@ -19,6 +23,8 @@ const PokemonCardStyled = styled.div<Props>`
 
   .PokemonCard {
     &__img-box {
+      background: var(--palette-white);
+      border-radius: 50%;
       height: 12rem;
       position: relative;
       width: 12rem;
@@ -29,6 +35,7 @@ const PokemonCardStyled = styled.div<Props>`
       background-color: var(--palette-grey);
       border-radius: 0.4rem;
       display: flex;
+      font-size: 1.2rem;
       height: 2.4rem;
       margin: 0.8rem 0;
       padding: 0 0.8rem;
@@ -80,6 +87,7 @@ export const PokemonCardPlaceholderStyled = styled.div<PlaceholderProps>`
 
     &__img {
       background-color: var(--palette-background-grey);
+      border-radius: 50%;
       height: 12rem;
       width: 12rem;
     }
@@ -115,6 +123,7 @@ export const PokemonCardPlaceholderStyled = styled.div<PlaceholderProps>`
 export const PokemonCardImgPlaceholderStyled = styled.div<PlaceholderProps>`
   &.PokemonCardImgPlaceholder {
     background-color: var(--palette-background-grey);
+    border-radius: 50%;
     height: 12rem;
     position: absolute;
     width: 12rem;

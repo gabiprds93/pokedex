@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 // Components
 import { PokemonCardIdPlaceholder } from "./PokemonCard.placeholder";
@@ -24,12 +25,18 @@ const PokemonCard: React.FC<Props> = (props) => {
   const [loadingImg, setLoadingImg] = useState(true);
   const { name } = pokemon;
   const { data: pokemonDetails } = useFetchPokemonDetails(name);
+  const { push } = useRouter();
 
   const { id, sprites, types } = pokemonDetails ?? {};
   const isDefaultPokemon = name === POKEMON_DEFAULT_NAME;
+  const type = types ? types[0].type.name : undefined;
 
   return (
-    <Styles className="PokemonCard">
+    <Styles
+      className="PokemonCard"
+      onClick={() => push(`/pokemon-details/${name}`)}
+      type={type}
+    >
       <div className="PokemonCard__img-container">
         <div className="PokemonCard__img-box">
           {isDefaultPokemon ? (

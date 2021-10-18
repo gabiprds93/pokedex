@@ -41,7 +41,13 @@ export const useFetchPokemonList = (params: Params) => {
  * @returns {UseQueryResult<PokemonStandardData[]>} Returns a use query result with the pokemon details.
  */
 export const useFetchPokemonDetails = (name: string) => {
-  return useQuery(["pokemonDetails", name], () => {
-    return fetchPokemonDetails(name);
-  });
+  return useQuery(
+    ["pokemonDetails", name],
+    () => {
+      return fetchPokemonDetails(name);
+    },
+    {
+      enabled: !!name,
+    }
+  );
 };

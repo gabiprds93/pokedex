@@ -2,5 +2,10 @@
   "title": "Pokedex",
   "numeration": "N°",
   "loading": "Loading more Pokemons...",
-  "descriptionHome": "Discover all the Pokemons here"
+  "descriptionHome": "Discover all the Pokemons here",
+  "height": "Height",
+  "weight": "Weight",
+  "category": "Category",
+  "abilities": "Abilities",
+  "type": "Type"
 }

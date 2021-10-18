@@ -15,8 +15,16 @@ export interface PokemonCardProps {
 }
 
 // Styled Component Props
+
+/** Pokemon card styled props.
+ * @interface PokemonCardStyledProps
+ * @since 0.1.0
+ * @property {string} className The class name of the component.
+ * @property {string} type The type of the pokemon.
+ */
 export interface PokemonCardStyledProps {
   className: string;
+  type?: string;
 }
 
 // Styled Placeholder Props

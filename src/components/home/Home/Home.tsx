@@ -1,6 +1,3 @@
-import React from "react";
-import Head from "next/head";
-
 // Components
 import PokemonList from "../PokemonList/PokemonList";
 // Types, Styles
@@ -12,10 +9,6 @@ import i18n from "../../../i18n/i18n";
 const Home: React.FC<Props> = (props) => {
   return (
     <Styles className="Home">
-      <Head>
-        <title>home</title>
-      </Head>
-
       <header className="Home__header" />
 
       <main className="Home__main">
