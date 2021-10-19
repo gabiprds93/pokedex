@@ -2,11 +2,8 @@ import { useInfiniteQuery, useQuery } from "react-query";
 import { useSelector } from "react-redux";
 
 // Services
-import {
-  fetchPokemonList,
-  fetchPokemonDetails,
-  fetchPokemonSpecies,
-} from "./pokemon.service";
+import { fetchPokemonList, fetchPokemonDetails } from "./pokemon.service";
+import { fetchPokemonSpecies } from "./pokemon.service";
 // Redux
 import { AppState } from "../../redux/reducers";
 // Types
@@ -42,7 +39,7 @@ export const useFetchPokemonList = (params: Params) => {
 /** Hook to fetch pokemon details.
  * @since 0.1.0
  * @param {string} name The name of the pokemon.
- * @returns {UseQueryResult<PokemonStandardData[]>} Returns a use query result with the pokemon details.
+ * @returns {UseQueryResult<PokemonDetails>} Returns a use query result with the pokemon details.
  */
 export const useFetchPokemonDetails = (name: string) => {
   return useQuery(
@@ -59,7 +56,7 @@ export const useFetchPokemonDetails = (name: string) => {
 /** Hook to fetch pokemon species information.
  * @since 0.1.0
  * @param {number} id The id of the pokemon.
- * @returns {UseQueryResult<PokemonStandardData[]>} Returns a use query result with the pokemon details.
+ * @returns {UseQueryResult<PokemonSpecies>} Returns a use query result with the pokemon species.
  */
 export const useFetchPokemonSpecies = (id: number) => {
   return useQuery(["pokemonSpecies", id], () => {

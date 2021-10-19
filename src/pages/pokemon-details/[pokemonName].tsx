@@ -7,9 +7,12 @@ import PokemonDetails from "../../components/pokemonDetails/PokemonDetails/Pokem
 // Utils
 import { prefetchPokemonList } from "../../utils/cache.util";
 import { prefetchPokemonDetails } from "../../utils/cache.util";
+import { prefetchPokemonSpecies } from "../../utils/cache.util";
 // Services
 import { useFetchPokemonDetails } from "../../services/pokemon/pokemon.service.hooks";
+// Types
 import { PokemonsData } from "../../types/pokemon.type";
+import { PokemonDetails as IPokemonDetails } from "../../types/pokemon.type";
 // Configs
 import CONSTANTS from "../../configs/constants";
 
@@ -29,13 +32,6 @@ const PokemonDetailsPage: NextPage = () => {
 
 export const getStaticPaths: GetStaticPaths = async (context) => {
   const queryClient = new QueryClient();
-  const pokemonList = prefetchPokemonList(queryClient, {
-    offset: POKEMON_DEFAULT_PARAMS.offset,
-    limit: POKEMON_DEFAULT_PARAMS.limit,
-  });
-
-  await Promise.all([pokemonList]);
-
   const pokemonsData = queryClient.getQueryData<PokemonsData>("pokemonList");
   const { results } = pokemonsData ?? {};
   const paths = (results ?? []).map((pokemon) => {
@@ -55,12 +51,27 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const { params } = context ?? {};
   const { pokemonName } = params ?? {};
   const queryClient = new QueryClient();
+
+  const pokemonList = prefetchPokemonList(queryClient, {
+    offset: POKEMON_DEFAULT_PARAMS.offset,
+    limit: POKEMON_DEFAULT_PARAMS.limit,
+  });
+
   const pokemonDetails = prefetchPokemonDetails(
     queryClient,
     pokemonName ? (pokemonName as string) : ""
   );
 
-  await Promise.all([pokemonDetails]);
+  const pokemonsDetails = queryClient.getQueryData<IPokemonDetails>([
+    "pokemonDetails",
+    pokemonName,
+  ]);
+
+  const pokemonSpecies = pokemonsDetails
+    ? prefetchPokemonSpecies(queryClient, pokemonsDetails.id)
+    : undefined;
+
+  await Promise.all([pokemonList, pokemonDetails, pokemonSpecies]);
 
   return {
     props: {
