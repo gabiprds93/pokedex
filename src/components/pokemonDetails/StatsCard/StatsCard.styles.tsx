@@ -7,7 +7,6 @@ const StatsCardStyled = styled.div<Props>`
   &.StatsCard {
     background-color: var(--palette-white);
     border-radius: 1.6rem;
-    margin-left: 2.4rem;
     padding: 2.4rem;
   }
 
@@ -22,6 +21,7 @@ const StatsCardStyled = styled.div<Props>`
 
     &__content {
       display: flex;
+      justify-content: center;
     }
 
     &__item {
@@ -37,7 +37,7 @@ const StatsCardStyled = styled.div<Props>`
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      height: 20rem;
+      height: 16rem;
       width: 4rem;
     }
 

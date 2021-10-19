@@ -1,14 +1,16 @@
-import React from "react";
-
 // Types, Styles
 import { InfoCardProps as Props } from "./InfoCard.types";
 import Styles from "./InfoCard.styles";
+// Configs
 import i18n from "../../../i18n/i18n";
 
 const InfoCard: React.FC<Props> = (props) => {
-  const { pokemon } = props;
+  const { pokemon, genera } = props;
 
   const { height, weight, abilities } = pokemon;
+  const { genus } =
+    genera?.find((item) => item.language.name === window.navigator.language) ??
+    {};
 
   return (
     <Styles className="InfoCard">
@@ -36,7 +38,7 @@ const InfoCard: React.FC<Props> = (props) => {
             {i18n.t("category")}
           </span>
 
-          <span className="InfoCard__info-container__data">{height}</span>
+          <span className="InfoCard__info-container__data">{genus}</span>
         </div>
 
         <div className="InfoCard__info-container">

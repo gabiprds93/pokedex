@@ -92,3 +92,36 @@ export interface Ability {
   ability: PokemonStandardData;
   is_hidden: boolean;
 }
+
+/** Pokemon species information.
+ * @interface PokemonSpecies
+ * @since 0.1.0
+ * @property {PokemonFlavor[]} flavor_text_entries The flavor text information.
+ * @property {PokemonGenra[]} genera The genera information.
+ */
+export interface PokemonSpecies {
+  flavor_text_entries: PokemonFlavor[];
+  genera: PokemonGenra[];
+}
+
+/** Pokemon flavor information.
+ * @interface PokemonFlavor
+ * @since 0.1.0
+ * @property {string} flavor_text The flavor text of the pokemon.
+ * @property {PokemonStandardData} language The language of the text.
+ */
+export interface PokemonFlavor {
+  flavor_text: string;
+  language: PokemonStandardData;
+}
+
+/** Pokemon genera information.
+ * @interface PokemonGenra
+ * @since 0.1.0
+ * @property {string} genus The genus of the pokemon.
+ * @property {PokemonStandardData} language The language of the text.
+ */
+export interface PokemonGenra {
+  genus: string;
+  language: PokemonStandardData;
+}

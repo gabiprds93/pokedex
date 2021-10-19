@@ -3,6 +3,7 @@
 // Types
 import { Params } from "./pokemon.service.types";
 import { PokemonsData, PokemonDetails } from "../../types/pokemon.type";
+import { PokemonSpecies } from "../../types/pokemon.type";
 // Configs
 import CONSTANTS from "../../configs/constants";
 
@@ -42,6 +43,25 @@ export const fetchPokemonDetails = async (
 ): Promise<PokemonDetails> => {
   try {
     const data = await fetch(`${baseUrl}/pokemon/${name}`)
+      .then((response) => response.json())
+      .then((data) => data);
+
+    return data;
+  } catch (e) {
+    throw new Error(e.message);
+  }
+};
+
+/** Function to get pokemon species information.
+ * @since 0.1.0
+ * @param {number} id The id of the pokemon.
+ * @returns {Promise<PokemonSpecies>} Returns a promise with the result of pokemon details.
+ */
+export const fetchPokemonSpecies = async (
+  id: number
+): Promise<PokemonSpecies> => {
+  try {
+    const data = await fetch(`${baseUrl}/pokemon-species/${id}`)
       .then((response) => response.json())
       .then((data) => data);
 

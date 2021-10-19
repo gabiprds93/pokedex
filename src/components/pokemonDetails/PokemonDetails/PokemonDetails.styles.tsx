@@ -23,35 +23,43 @@ const PokemonDetailsStyled = styled.div<Props>`
 
     &__main {
       align-items: center;
+      background-color: var(--palette-background-grey);
+      border-radius: 1.6rem;
+      box-shadow: 0 0.4rem 1.6rem var(--palette-shadow);
       display: flex;
       flex: 1;
       flex-direction: column;
       max-width: 102.4rem;
       width: 100%;
 
-      &__title {
-        font-size: 3.4rem;
-        padding-bottom: 4rem;
-      }
-
-      &__content {
-        background-color: var(--palette-background-grey);
-        border-radius: 1.6rem;
-        box-shadow: 0 0.4rem 1.6rem var(--palette-shadow);
+      &__top {
         display: flex;
         justify-content: center;
-        margin-top: 2.4rem;
-        padding: 2.4rem 0 3.6rem;
+        padding: 2.4rem;
         width: 100%;
       }
 
-      &__info {
+      &__image {
+        display: flex;
+        justify-content: center;
         width: 40%;
+      }
 
-        @media screen and (max-width: ${tablet}px) {
-          max-width: 24rem;
-          width: 100%;
-        }
+      &__details {
+        background-color: var(--palette-white);
+        border-radius: 1.6rem;
+        margin-left: 2.4rem;
+        padding: 2.4rem;
+        width: 50%;
+      }
+
+      &__title {
+        font-size: 3.4rem;
+        padding-bottom: 1.6rem;
+      }
+
+      &__description {
+        font-size: 1.8rem;
       }
 
       &__types {
@@ -69,6 +77,27 @@ const PokemonDetailsStyled = styled.div<Props>`
             margin-right: 0.8rem;
           }
         }
+      }
+
+      &__content {
+        display: flex;
+        justify-content: center;
+        padding: 2.4rem;
+        width: 100%;
+      }
+
+      &__info {
+        width: 40%;
+
+        @media screen and (max-width: ${tablet}px) {
+          max-width: 24rem;
+          width: 100%;
+        }
+      }
+
+      &__stats {
+        margin-left: 2.4rem;
+        width: 50%;
       }
     }
 
