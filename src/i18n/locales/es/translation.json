@@ -8,5 +8,6 @@
   "weight": "Peso",
   "category": "Categoria",
   "abilities": "Habilidades",
-  "type": "Tipo"
+  "type": "Tipo",
+  "stats": "Puntos de base"
 }

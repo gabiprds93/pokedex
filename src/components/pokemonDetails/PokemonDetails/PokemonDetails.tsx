@@ -2,8 +2,11 @@ import Head from "next/head";
 
 // Components
 import InfoCard from "../InfoCard/InfoCard";
+import StatsCard from "../StatsCard/StatsCard";
 import PokemonImage from "../../global/PokemonImage/PokemonImage";
 import TypeLabel from "../../global/TypeLabel/TypeLabel";
+// Utils
+import { capitalize } from "../../../utils/common.util";
 // Types, Styles
 import { PokemonDetailsProps as Props } from "./PokemonDetails.types";
 import Styles from "./PokemonDetails.styles";
@@ -13,8 +16,8 @@ import i18n from "../../../i18n/i18n";
 const PokemonDetails: React.FC<Props> = (props) => {
   const { pokemon } = props;
 
-  const { id, name, types } = pokemon;
-  const nameCapitalize = `${name.charAt(0).toUpperCase()}${name.substr(1)}`;
+  const { id, name, types, stats } = pokemon;
+  const nameCapitalize = capitalize(name);
 
   return (
     <Styles className="PokemonDetails">
@@ -52,6 +55,8 @@ const PokemonDetails: React.FC<Props> = (props) => {
               </div>
             </div>
           </div>
+
+          <StatsCard stats={stats} />
         </div>
       </main>
 

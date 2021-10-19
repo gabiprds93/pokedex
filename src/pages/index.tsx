@@ -5,8 +5,8 @@ import { dehydrate, QueryClient } from "react-query";
 // Components
 import Home from "../components/home/Home/Home";
 // Utils
-import { prefetchPokemonDetails } from "../utils/cache.utils";
-import { prefetchPokemonList } from "../utils/cache.utils";
+import { prefetchPokemonDetails } from "../utils/cache.util";
+import { prefetchPokemonList } from "../utils/cache.util";
 // Configs
 import CONSTANTS from "../configs/constants";
 import i18n from "../i18n/i18n";

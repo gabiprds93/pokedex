@@ -8,5 +8,6 @@
   "weight": "Weight",
   "category": "Category",
   "abilities": "Abilities",
-  "type": "Type"
+  "type": "Type",
+  "stats": "Stats"
 }

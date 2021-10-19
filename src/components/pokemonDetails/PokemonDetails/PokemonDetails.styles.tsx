@@ -14,7 +14,6 @@ const PokemonDetailsStyled = styled.div<Props>`
     flex-direction: column;
     max-width: var(--sizes-page-maxWidth);
     min-height: var(--sizes-page-minHeight);
-    min-width: var(--sizes-page-minWidth);
     padding: 2.4rem;
   }
 
@@ -36,8 +35,12 @@ const PokemonDetailsStyled = styled.div<Props>`
       }
 
       &__content {
+        background-color: var(--palette-background-grey);
+        border-radius: 1.6rem;
+        box-shadow: 0 0.4rem 1.6rem var(--palette-shadow);
         display: flex;
         justify-content: center;
+        margin-top: 2.4rem;
         padding: 2.4rem 0 3.6rem;
         width: 100%;
       }

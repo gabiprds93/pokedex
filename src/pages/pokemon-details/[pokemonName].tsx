@@ -5,8 +5,8 @@ import { dehydrate, QueryClient } from "react-query";
 // Components
 import PokemonDetails from "../../components/pokemonDetails/PokemonDetails/PokemonDetails";
 // Utils
-import { prefetchPokemonList } from "../../utils/cache.utils";
-import { prefetchPokemonDetails } from "../../utils/cache.utils";
+import { prefetchPokemonList } from "../../utils/cache.util";
+import { prefetchPokemonDetails } from "../../utils/cache.util";
 // Services
 import { useFetchPokemonDetails } from "../../services/pokemon/pokemon.service.hooks";
 import { PokemonsData } from "../../types/pokemon.type";

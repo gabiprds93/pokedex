@@ -1,7 +1,9 @@
 const palette = {
   grey: "rgba(0,0,0,0.1)",
+  "grey-dark": "#a4a4a4",
   "background-grey": "#f2f2f2",
   "background-page": "#efefbb",
+  "backgound-stat": "#3B0E13",
   black: "#000000",
   white: "#FFFFFF",
   shine: "#f8f8f888",

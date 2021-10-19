@@ -14,6 +14,7 @@ const CONSTANTS = {
     limit: 20,
   },
   POKEMON_DEFAULT_NAME: "bulbasaur",
+  MAX_STAT_POINTS: 255
 };
 
 export default CONSTANTS;
