@@ -37,12 +37,21 @@ const PokemonDetailsStyled = styled.div<Props>`
         justify-content: center;
         padding: 2.4rem;
         width: 100%;
+
+        @media screen and (max-width: ${tablet}px) {
+          flex-wrap: wrap;
+        }
       }
 
       &__image {
         display: flex;
         justify-content: center;
         width: 40%;
+
+        @media screen and (max-width: ${tablet}px) {
+          /* max-width: 24rem; */
+          width: 100%;
+        }
       }
 
       &__details {
@@ -51,6 +60,12 @@ const PokemonDetailsStyled = styled.div<Props>`
         margin-left: 2.4rem;
         padding: 2.4rem;
         width: 50%;
+
+        @media screen and (max-width: ${tablet}px) {
+          margin-left: 0;
+          margin-top: 4.8rem;
+          width: 100%;
+        }
       }
 
       &__title {
@@ -84,13 +99,16 @@ const PokemonDetailsStyled = styled.div<Props>`
         justify-content: center;
         padding: 2.4rem;
         width: 100%;
+
+        @media screen and (max-width: ${tablet}px) {
+          flex-wrap: wrap;
+        }
       }
 
       &__info {
         width: 40%;
 
         @media screen and (max-width: ${tablet}px) {
-          max-width: 24rem;
           width: 100%;
         }
       }
@@ -98,6 +116,12 @@ const PokemonDetailsStyled = styled.div<Props>`
       &__stats {
         margin-left: 2.4rem;
         width: 50%;
+
+        @media screen and (max-width: ${tablet}px) {
+          margin-left: 0;
+          margin-top: 4.8rem;
+          width: 100%;
+        }
       }
     }
 

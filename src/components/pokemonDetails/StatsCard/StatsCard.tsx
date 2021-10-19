@@ -26,17 +26,19 @@ const StatsCard: React.FC<Props> = (props) => {
           const percent = (base_stat * 100) / MAX_STAT_POINTS;
 
           return (
-            <div key={index} className="StatsCard__item">
-              <p className="StatsCard__text">{base_stat}</p>
-
-              <div className="StatsCard__column">
-                <div
-                  className="StatsCard__percent"
-                  style={{ height: `${percent}%` }}
-                />
-              </div>
-
+            <div key={index}>
               <p className="StatsCard__text">{statCapitalize}</p>
+
+              <div className="StatsCard__item">
+                <div className="StatsCard__row">
+                  <div
+                    className="StatsCard__percent"
+                    style={{ width: `${percent}%` }}
+                  />
+                </div>
+
+                <p className="StatsCard__text">{base_stat}</p>
+              </div>
             </div>
           );
         })}

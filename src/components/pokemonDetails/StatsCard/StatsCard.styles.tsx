@@ -15,30 +15,33 @@ const StatsCardStyled = styled.div<Props>`
       color: var(--palette-dark-red);
       font-size: 1.8rem;
       font-weight: 500;
-      padding-bottom: 0.8rem;
-      padding-left: 0.8rem;
     }
 
     &__content {
       display: flex;
+      flex-direction: column;
       justify-content: center;
+
+      & > *:not(:last-child) {
+        padding-bottom: 0.8rem;
+      }
     }
 
     &__item {
       align-items: center;
       display: flex;
-      flex-direction: column;
-      padding: 0 0.8rem;
-      width: 6.4rem;
+
+      & > p {
+        width: 2.4rem;
+      }
     }
 
-    &__column {
+    &__row {
       background-color: var(--palette-backgound-stat);
       display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      height: 16rem;
-      width: 4rem;
+      flex: 1;
+      height: 2.4rem;
+      margin-right: 0.8rem;
     }
 
     &__percent {
@@ -48,7 +51,6 @@ const StatsCardStyled = styled.div<Props>`
     &__text {
       font-size: 1.4rem;
       padding: 0.8rem 0;
-      text-align: center;
     }
   }
 `;
