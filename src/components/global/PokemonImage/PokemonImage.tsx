@@ -17,22 +17,24 @@ const PokemonImage: React.FC<Props> = (props) => {
   const { pokemon } = props;
   const [loadingImg, setLoadingImg] = useState(true);
 
-  const { name, sprites, types } = pokemon;
+  const { name, sprites } = pokemon;
   const isDefaultPokemon = name === POKEMON_DEFAULT_NAME;
 
   return (
     <Styles className="PokemonImage">
-      {loadingImg ? <PokemonImagePlaceholder /> : null}
+      <div className="PokemonImage__container">
+        {loadingImg ? <PokemonImagePlaceholder /> : null}
 
-      {sprites ? (
-        <Image
-          src={isDefaultPokemon ? bulbasaur : sprites.front_default}
-          alt={name}
-          width={240}
-          height={240}
-          onLoadingComplete={() => setLoadingImg(false)}
-        />
-      ) : null}
+        {sprites ? (
+          <Image
+            src={isDefaultPokemon ? bulbasaur : sprites.front_default}
+            alt={name}
+            width={240}
+            height={240}
+            onLoadingComplete={() => setLoadingImg(false)}
+          />
+        ) : null}
+      </div>
     </Styles>
   );
 };

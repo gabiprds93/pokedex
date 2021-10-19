@@ -6,15 +6,19 @@ import { PokemonImagePlaceholderStyledProps as PlaceholderProps } from "./Pokemo
 
 const PokemonImageStyled = styled.div<Props>`
   &.PokemonImage {
+    align-items: center;
     background-color: var(--palette-white);
     border-radius: 2.4rem;
     display: flex;
     justify-content: center;
-    position: relative;
     width: 100%;
   }
 
   .PokemonImage {
+    &__container {
+      height: 24rem;
+      position: relative;
+    }
   }
 `;
 
