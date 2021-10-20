@@ -9,5 +9,6 @@
   "category": "Category",
   "abilities": "Abilities",
   "type": "Type",
-  "stats": "Stats"
+  "stats": "Stats",
+  "evolutions": "Evolutions"
 }

@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useState } from "react";
 import Image from "next/image";
 
 // Components
@@ -8,12 +8,24 @@ import PokemonCardPlaceholder from "../../home/PokemonCard/PokemonCard.placehold
 import { Chain } from "../../../types/pokemon.type";
 import { EvolutionChainCardProps as Props } from "./EvolutionChainCard.types";
 import Styles from "./EvolutionChainCard.styles";
+// Configs
+import CONSTANTS from "../../../configs/constants";
+import i18n from "../../../i18n/i18n";
 
 import ChevronSVG from "../../../../public/assets/images/chevron-right-solid.svg";
+import ChevronDownSVG from "../../../../public/assets/images/chevron-down-solid.svg";
 
+const { BREAKPOINTS } = CONSTANTS;
 const EvolutionChainCard: React.FC<Props> = (props) => {
+  const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
   const { chain } = props;
+
   const { species: firstPokemon, evolves_to } = chain ?? {};
+  const isDesktop = windowWidth > BREAKPOINTS.desktop;
+
+  window.onresize = () => {
+    setWindowWidth(window.innerWidth);
+  };
 
   /** Funtion to render the pokemons of the next evolution.
    * @since 0.1.0
@@ -26,7 +38,12 @@ const EvolutionChainCard: React.FC<Props> = (props) => {
     return (
       <div className="EvolutionChainCard__next">
         <div className="EvolutionChainCard__next__icon">
-          <Image src={ChevronSVG} alt="Chevron icon" width={48} />
+          <Image
+            src={isDesktop ? ChevronSVG : ChevronDownSVG}
+            alt="Chevron icon"
+            width={36}
+            height={36}
+          />
         </div>
 
         <div className="EvolutionChainCard__next__container">
@@ -65,7 +82,7 @@ const EvolutionChainCard: React.FC<Props> = (props) => {
 
   return (
     <Styles className="EvolutionChainCard">
-      <p className="EvolutionChainCard__title">Evoluciones</p>
+      <p className="EvolutionChainCard__title">{i18n.t("evolutions")}</p>
 
       <div className="EvolutionChainCard__evolution">
         {firstPokemon ? (

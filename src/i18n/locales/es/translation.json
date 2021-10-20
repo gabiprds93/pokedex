@@ -6,8 +6,9 @@
   "descriptionDetails": "Descubre aquí la categoría, tipo y más detalles de",
   "height": "Altura",
   "weight": "Peso",
-  "category": "Categoria",
+  "category": "Categoría",
   "abilities": "Habilidades",
   "type": "Tipo",
-  "stats": "Puntos de base"
+  "stats": "Puntos de base",
+  "evolutions": "Evoluciones"
 }
