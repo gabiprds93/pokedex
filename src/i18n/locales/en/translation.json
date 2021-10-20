@@ -10,5 +10,7 @@
   "abilities": "Abilities",
   "type": "Type",
   "stats": "Stats",
-  "evolutions": "Evolutions"
+  "evolutions": "Evolutions",
+  "notFound": "Page not found",
+  "chevronIcon": "Chevron icon"
 }

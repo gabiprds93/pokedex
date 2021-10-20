@@ -34,7 +34,7 @@ const PokemonCard: React.FC<Props> = (props) => {
   return (
     <Styles
       className="PokemonCard"
-      onClick={() => push(`/pokemon-details/${name}`)}
+      onClick={() => push(`/${name}`)}
       type={type}
     >
       <div className="PokemonCard__img-container">

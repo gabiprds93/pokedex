@@ -40,7 +40,7 @@ const EvolutionChainCard: React.FC<Props> = (props) => {
         <div className="EvolutionChainCard__next__icon">
           <Image
             src={isDesktop ? ChevronSVG : ChevronDownSVG}
-            alt="Chevron icon"
+            alt={i18n.t("chevronIcon")}
             width={36}
             height={36}
           />

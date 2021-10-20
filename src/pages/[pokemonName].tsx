@@ -3,18 +3,19 @@ import { useRouter } from "next/router";
 import { dehydrate, QueryClient } from "react-query";
 
 // Components
-import PokemonDetails from "../../components/pokemonDetails/PokemonDetails/PokemonDetails";
+import PokemonDetails from "../components/pokemonDetails/PokemonDetails/PokemonDetails";
+import FourZeroFour from "../components/fourZeroFour/FourZeroFour/FourZeroFour";
 // Utils
-import { prefetchPokemonList } from "../../utils/cache.util";
-import { prefetchPokemonDetails } from "../../utils/cache.util";
-import { prefetchPokemonSpecies } from "../../utils/cache.util";
+import { prefetchPokemonList } from "../utils/cache.util";
+import { prefetchPokemonDetails } from "../utils/cache.util";
+import { prefetchPokemonSpecies } from "../utils/cache.util";
 // Services
-import { useFetchPokemonDetails } from "../../services/pokemon/pokemon.service.hooks";
+import { useFetchPokemonDetails } from "../services/pokemon/pokemon.service.hooks";
 // Types
-import { PokemonsData } from "../../types/pokemon.type";
-import { PokemonDetails as IPokemonDetails } from "../../types/pokemon.type";
+import { PokemonsData } from "../types/pokemon.type";
+import { PokemonDetails as IPokemonDetails } from "../types/pokemon.type";
 // Configs
-import CONSTANTS from "../../configs/constants";
+import CONSTANTS from "../configs/constants";
 
 const { POKEMON_DEFAULT_PARAMS } = CONSTANTS;
 
@@ -23,8 +24,10 @@ const PokemonDetailsPage: NextPage = () => {
   const pokemonName = query.pokemonName as string;
   const { data: pokemon } = useFetchPokemonDetails(pokemonName);
 
+  if (!pokemonName) return null;
+
   if (!pokemon) {
-    return null;
+    return <FourZeroFour />;
   }
 
   return <PokemonDetails pokemon={pokemon} />;

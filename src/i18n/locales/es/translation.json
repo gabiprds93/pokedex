@@ -10,5 +10,7 @@
   "abilities": "Habilidades",
   "type": "Tipo",
   "stats": "Puntos de base",
-  "evolutions": "Evoluciones"
+  "evolutions": "Evoluciones",
+  "notFound": "Página no encontrada",
+  "chevronIcon": "Icono de chevron"
 }
