@@ -49,7 +49,6 @@ const PokemonDetailsStyled = styled.div<Props>`
         width: 40%;
 
         @media screen and (max-width: ${tablet}px) {
-          /* max-width: 24rem; */
           width: 100%;
         }
       }

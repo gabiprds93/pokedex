@@ -17,6 +17,7 @@ const PokemonCardStyled = styled.div<Props>`
     display: flex;
     flex-direction: column;
     height: var(--sizes-card-height);
+    min-width: var(--sizes-card-width);
     padding: 1.6rem;
     width: var(--sizes-card-width);
   }

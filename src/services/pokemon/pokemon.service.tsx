@@ -3,6 +3,7 @@
 // Types
 import { Params } from "./pokemon.service.types";
 import { PokemonsData, PokemonDetails } from "../../types/pokemon.type";
+import { EvolutionChain } from "../../types/pokemon.type";
 import { PokemonSpecies } from "../../types/pokemon.type";
 // Configs
 import CONSTANTS from "../../configs/constants";
@@ -62,6 +63,25 @@ export const fetchPokemonSpecies = async (
 ): Promise<PokemonSpecies> => {
   try {
     const data = await fetch(`${baseUrl}/pokemon-species/${id}`)
+      .then((response) => response.json())
+      .then((data) => data);
+
+    return data;
+  } catch (e) {
+    throw new Error(e.message);
+  }
+};
+
+/** Function to get pokemon evolution chain information.
+ * @since 0.1.0
+ * @param {string} url The url of the request.
+ * @returns {Promise<EvolutionChain>} Returns a promise with the result of pokemon evolution chain.
+ */
+export const fetchEvolutionChain = async (
+  url: string
+): Promise<EvolutionChain> => {
+  try {
+    const data = await fetch(url)
       .then((response) => response.json())
       .then((data) => data);
 

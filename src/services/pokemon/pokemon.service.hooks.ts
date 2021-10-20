@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 // Services
 import { fetchPokemonList, fetchPokemonDetails } from "./pokemon.service";
-import { fetchPokemonSpecies } from "./pokemon.service";
+import { fetchPokemonSpecies, fetchEvolutionChain } from "./pokemon.service";
 // Redux
 import { AppState } from "../../redux/reducers";
 // Types
@@ -41,11 +41,11 @@ export const useFetchPokemonList = (params: Params) => {
  * @param {string} name The name of the pokemon.
  * @returns {UseQueryResult<PokemonDetails>} Returns a use query result with the pokemon details.
  */
-export const useFetchPokemonDetails = (name: string) => {
+export const useFetchPokemonDetails = (name?: string) => {
   return useQuery(
     ["pokemonDetails", name],
     () => {
-      return fetchPokemonDetails(name);
+      return fetchPokemonDetails(name ?? "");
     },
     {
       enabled: !!name,
@@ -62,4 +62,19 @@ export const useFetchPokemonSpecies = (id: number) => {
   return useQuery(["pokemonSpecies", id], () => {
     return fetchPokemonSpecies(id);
   });
+};
+
+/** Hook to fetch pokemon evolution chain information.
+ * @since 0.1.0
+ * @param {string} url The url of the request.
+ * @returns {UseQueryResult<PokemonSpecies>} Returns a use query result with the pokemon evolution chain.
+ */
+export const useFetchEvolutionChain = (url?: string) => {
+  return useQuery(
+    "evolutionChain",
+    () => {
+      return fetchEvolutionChain(url ?? "");
+    },
+    { enabled: !!url }
+  );
 };

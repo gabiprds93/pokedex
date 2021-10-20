@@ -4,11 +4,9 @@
  * @interface PokemonStandardData
  * @since 0.1.0
  * @property {string} name The name of the data.
- * @property {string} url The url of the data.
  */
-export interface PokemonStandardData {
+export interface PokemonStandardData extends Url {
   name: string;
-  url: string;
 }
 
 /** Pokemons information data.
@@ -102,6 +100,7 @@ export interface Ability {
 export interface PokemonSpecies {
   flavor_text_entries: PokemonFlavor[];
   genera: PokemonGenra[];
+  evolution_chain: Url;
 }
 
 /** Pokemon flavor information.
@@ -124,4 +123,35 @@ export interface PokemonFlavor {
 export interface PokemonGenra {
   genus: string;
   language: PokemonStandardData;
+}
+
+/** Url interface.
+ * @interface Url
+ * @since 0.1.0
+ * @property {string} url The url text.
+ */
+export interface Url {
+  url: string;
+}
+
+/** Evolution chain data.
+ * @interface EvolutionChain
+ * @since 0.1.0
+ * @property {number} id The id of the evolution chain.
+ * @property {Chain} chain The chain information.
+ */
+export interface EvolutionChain {
+  id: number;
+  chain: Chain;
+}
+
+/** Chain information.
+ * @interface Chain
+ * @since 0.1.0
+ * @property {Chain[]} evolves_to The evolves of the pokemon.
+ * @property {PokemonStandardData} species The pokemon.
+ */
+export interface Chain {
+  evolves_to: Chain[] | [];
+  species: PokemonStandardData;
 }

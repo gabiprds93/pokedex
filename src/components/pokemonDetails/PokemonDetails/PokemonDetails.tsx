@@ -5,10 +5,12 @@ import InfoCard from "../InfoCard/InfoCard";
 import StatsCard from "../StatsCard/StatsCard";
 import PokemonImage from "../../global/PokemonImage/PokemonImage";
 import TypeLabel from "../../global/TypeLabel/TypeLabel";
+import EvolutionChainCard from "../EvolutionChainCard/EvolutionChainCard";
 // Utils
 import { capitalize } from "../../../utils/common.util";
 // Services
 import { useFetchPokemonSpecies } from "../../../services/pokemon/pokemon.service.hooks";
+import { useFetchEvolutionChain } from "../../../services/pokemon/pokemon.service.hooks";
 // Types, Styles
 import { PokemonDetailsProps as Props } from "./PokemonDetails.types";
 import Styles from "./PokemonDetails.styles";
@@ -19,9 +21,10 @@ const PokemonDetails: React.FC<Props> = (props) => {
   const { pokemon } = props;
   const { id, name, types, stats } = pokemon;
   const { data: pokemonSpecies } = useFetchPokemonSpecies(id);
+  const { flavor_text_entries, genera, evolution_chain } = pokemonSpecies ?? {};
+  const { data: evolutionChain } = useFetchEvolutionChain(evolution_chain?.url);
 
   const nameCapitalize = capitalize(name);
-  const { flavor_text_entries, genera } = pokemonSpecies ?? {};
   const { flavor_text } =
     flavor_text_entries?.find(
       (flavor) => flavor.language.name === window.navigator.language
@@ -77,6 +80,8 @@ const PokemonDetails: React.FC<Props> = (props) => {
           </div>
         </div>
       </main>
+
+      <EvolutionChainCard chain={evolutionChain?.chain} />
 
       <footer className="PokemonDetails__footer" />
     </Styles>
