@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { useDispatch } from "react-redux";
 
 // Components
 import InfoCard from "../InfoCard/InfoCard";
@@ -11,11 +12,16 @@ import { capitalize } from "../../../utils/common.util";
 // Services
 import { useFetchPokemonSpecies } from "../../../services/pokemon/pokemon.service.hooks";
 import { useFetchEvolutionChain } from "../../../services/pokemon/pokemon.service.hooks";
+// Redux
+import { setPokemonOffset } from "../../../redux/pokemon/pokemon.actions";
 // Types, Styles
 import { PokemonDetailsProps as Props } from "./PokemonDetails.types";
 import Styles from "./PokemonDetails.styles";
 // Configs
 import i18n from "../../../i18n/i18n";
+import CONSTANTS from "../../../configs/constants";
+
+const { POKEMON_DEFAULT_PARAMS } = CONSTANTS;
 
 const PokemonDetails: React.FC<Props> = (props) => {
   const { pokemon } = props;
@@ -23,6 +29,9 @@ const PokemonDetails: React.FC<Props> = (props) => {
   const { data: pokemonSpecies } = useFetchPokemonSpecies(id);
   const { flavor_text_entries, genera, evolution_chain } = pokemonSpecies ?? {};
   const { data: evolutionChain } = useFetchEvolutionChain(evolution_chain?.url);
+  const dispatch = useDispatch();
+
+  dispatch(setPokemonOffset(POKEMON_DEFAULT_PARAMS.limit));
 
   const nameCapitalize = capitalize(name);
   const { flavor_text } =
